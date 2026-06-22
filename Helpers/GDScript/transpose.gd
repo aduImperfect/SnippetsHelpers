@@ -46,7 +46,7 @@ func _transpose_safe(arr : Array, crop : bool = false) -> Dictionary:
 			num_columns = min(num_columns, row.size())
 		else:
 			while row.size() < num_columns:
-				row.append("null")
+				row.append(null)
 			num_columns = max(num_columns, row.size())
 
 	var result = []

@@ -9,11 +9,17 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
-func _flatten_array(_nestedArr : Array) -> Array:
+func _flatten_array(_nestedArr : Array, keepNulls : bool = false) -> Array:
 	var flat_list : Array = []
 	for item in _nestedArr:
 		if item is Array:
-			flat_list.append_array(_flatten_array(item))
+			if keepNulls == true:
+				if item.size() == 0:
+					flat_list.append(null)
+				else:
+					flat_list.append_array(_flatten_array(item))
+			else:
+				flat_list.append_array(_flatten_array(item))
 		else:
 			flat_list.append(item)
 	return flat_list
