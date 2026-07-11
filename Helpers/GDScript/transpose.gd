@@ -1,4 +1,4 @@
-extends Node2D
+class_name Transpose
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,7 +9,7 @@ func _process(_delta: float) -> void:
 	pass
 
 # Transposing a grid.
-func _transpose_safe(arr : Array, crop : bool = false) -> Dictionary:
+static func _transpose_safe(arr : Array, crop : bool = false) -> Dictionary:
 
 	if arr.is_empty():
 		# Key:Value Pairs.

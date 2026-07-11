@@ -1,4 +1,4 @@
-extends Node2D
+class_name Flattener
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,7 +9,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
-func _flatten_array(_nestedArr : Array, keepNulls : bool = false) -> Array:
+static func _flatten_array(_nestedArr : Array, keepNulls : bool = false) -> Array:
 	var flat_list : Array = []
 	for item in _nestedArr:
 		if item is Array:
